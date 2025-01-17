@@ -93,23 +93,6 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
 
-'''
-# Visualize model
-print("Visualizing model")
-# Generate a dummy input with the expected shape (batch_size, seq_len, input_dim)
-sample_input = torch.randn(1, data.shape[1], data.shape[2]).to(device)  # Batch size = 1, sequence length = 50, input dimension = 10
-
-# Perform a forward pass through the model to get the output
-output = model(sample_input)
-
-# Create a visualization of the model
-dot = make_dot(output, params=dict(model.named_parameters()))
-
-# Save the model structure to a PNG file
-dot.attr(dpi='600')  # Set the desired DPI (e.g., 300)
-dot.render("transformer_model_structure", format="png")
-'''
-
 # Training Loop
 num_epochs = 50
 train_losses = []
